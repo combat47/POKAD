@@ -1,4 +1,4 @@
-# 🦜 POKAD · Persian Offline Knowledge AI & Digital Assistant
+# 🦜 POKAD – Offline AI assistant that speaks Persian (Farsi). Private, runs on your CPU, no cloud. Chat, search, translate, remember conversations. Llama‑2‑7B int8.
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
