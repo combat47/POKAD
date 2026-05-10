@@ -145,7 +145,7 @@ All contributors get:
 POKAD is open source under the [Apache 2.0 License.](https://github.com/combat47/POKAD/blob/main/LICENSE)
 You can use, modify, and even sell it – just keep the original copyright notice and don't sue us if it calls you names.
 
-###💰 Making money with POKAD (yes, it's possible)
+### 💰 Making money with POKAD (yes, it's possible)
 - We're not greedy, but servers aren't free. Here's how we (and you) can earn:
 
 - GitHub Sponsors – Support the project monthly. We'll put your logo on the fridge (README).
