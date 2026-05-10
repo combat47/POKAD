@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![GitHub Stars](https://img.shields.io/github/stars/combat47/POKAD?style=social)](https://github.com/combat47/POKAD)
-[![GitHub watchers](https://img.shields.io/github/watchers/combat47/StrapDown.js.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/combat47/StrapDown.js/watchers/)
+[![GitHub watchers](https://img.shields.io/github/watchers/combat47/style=social&label=Watch&maxAge=2592000)](https://GitHub.com/combat47/POKAD/watchers/)
 
 > **P**ersian **O**ffline **K**nowledge **A**I & **D**igital assistant  
 > *Your smart, sassy, and totally offline Persian buddy.*  
