@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+env/
+.env
+.venv
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Model files (large)
+models/llama-2-7b-chat-int8/
+models/mt5-en-fa/
+models/mt5-fa-en/
+
+# Databases and logs
+*.db
+*.log
+*.sqlite3
+
+# OS junk
+Thumbs.db
+.DS_Store
