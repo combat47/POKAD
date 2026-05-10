@@ -3,14 +3,14 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/POKAD?style=social)](https://github.com/yourusername/POKAD)
+[![GitHub Stars](https://img.shields.io/github/stars/combat47/POKAD?style=social)](https://github.com/combat47/POKAD)
 
 > **P**ersian **O**ffline **K**nowledge **A**I & **D**igital assistant  
 > *Your smart, sassy, and totally offline Persian buddy.*  
 > *No internet? No problem. 🤙*
 
-![POKAD demo](https://via.placeholder.com/800x400?text=Demo+Screenshot+Coming+Soon)  
-*(Screenshot placeholder – we're working on a killer demo!)*
+<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+
 
 ---
 
