@@ -17,3 +17,12 @@ cd POKAD
 python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
+
+Download Models
+Run the script:
+
+bash
+python scripts/download_models.py
+Usage
+bash
+python src/chatbotApp.py
