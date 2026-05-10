@@ -1,0 +1,10 @@
+ctranslate2
+transformers
+torch
+googletrans==4.0.0-rc1
+beautifulsoup4
+requests
+PyQt6
+googlesearch-python
+pytest
+black
