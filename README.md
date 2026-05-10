@@ -61,7 +61,7 @@ Think of it as a **private, snarky, and surprisingly helpful** companion that ca
 ### 1. Clone the magic
 
 ```bash
-git clone https://github.com/yourusername/POKAD.git
+git clone https://github.com/combat47/POKAD.git
 cd POKAD
 ```
 ### 2. Create a virtual environment (because we're civilized)
@@ -79,7 +79,7 @@ pip install -r requirements.txt
 We don't store the model in this repo (GitHub would cry). Run the download script:
 
 ```bash
-python scripts/download_models.py
+python models/download_models.py
 ```
 > ⏳ This will fetch ~4GB from Hugging Face. Go grab a coffee. ☕
 
