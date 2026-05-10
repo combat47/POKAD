@@ -17,7 +17,7 @@ model_path = os.environ.get("POKAD_MODEL_PATH", "./models/llama-2-7b-chat-int8")
 
 
 class OfflineLLM:
-    def __init__(self, model_path="E:/POKAD/models/llama-2-7b-chat-int8"):
+    def __init__(self, model_path):
         device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"دستگاه: {device}")
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
