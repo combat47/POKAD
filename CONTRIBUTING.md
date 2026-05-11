@@ -106,3 +106,21 @@ If you want to improve the documentation:
 We use the [Conventional Commits](https://www.conventionalcommits.org/) specification. This leads to more readable messages that are easy to follow when looking through the project history.
 
 A quick summary of the format:
+<type>(<optional scope>): <description>
+
+Example: `feat(translator): add offline translation support`
+
+Common types are:
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `test`: Adding missing tests or correcting existing tests
+- `chore`: Updating build tasks, package manager configs, etc
+
+### Python Styleguide
+We follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide. We recommend using `black` to automatically format your code.
+
+## Join The Project Team
+If you are consistently contributing high-quality code, documentation, or issue triage, you may be invited to join the project team. Just keep doing great work!
