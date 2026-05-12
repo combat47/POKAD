@@ -170,7 +170,7 @@ class ChatbotWindow(QMainWindow):
         self.setCentralWidget(container)
         self.send_button.clicked.connect(self.send_message)
         self.input_field.returnPressed.connect(self.send_message)
-        self.llm = OfflineLLM()
+        self.llm = OfflineLLM(model_path)
         self.chat_display.append("من Podak هستم، ساخته‌شده توسط امیرحسین جهازی. چطور می‌تونم کمکت کنم؟")
 
     def send_message(self):
