@@ -13,7 +13,10 @@ from datetime import datetime
 import sqlite3
 
 import os
-model_path = os.environ.get("POKAD_MODEL_PATH", "./models/llama-2-7b-chat-int8")
+default_model_path = "./models/llama-2-7b-chat-int8"
+if not os.path.exists(default_model_path):
+    default_model_path = "./core/llama-2-7b-chat-int8"  # fallback
+model_path = os.environ.get("POKAD_MODEL_PATH", default_model_path)
 
 
 class OfflineLLM:
