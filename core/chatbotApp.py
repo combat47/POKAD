@@ -11,6 +11,7 @@ from PyQt6.QtCore import Qt
 import threading
 from datetime import datetime
 import sqlite3
+from pokad.core.memory import Memory
 
 import os
 default_model_path = "./models/llama-2-7b-chat-int8"
@@ -28,9 +29,8 @@ class OfflineLLM:
         self.translator = Translator()
         self.name = "Podak"
         self.creator = "امیرحسین جهازی"
-        self.db_path = "chat_history.db"
-        self.user_name = None  # برای ذخیره اسم کاربر
-        self.clear_history()
+        self.memory = Memory(db_path="chat_history.db")
+        
 
     def clear_history(self):
         conn = sqlite3.connect(self.db_path)
@@ -97,7 +97,7 @@ class OfflineLLM:
         # تشخیص سبک زبانی
         style = "formal" if "است" in prompt or "می‌باشد" in prompt else "casual"
         input_prompt = f"You are Podak, created by Amirhossein Jahazi. Answer naturally in {style} style based on the conversation history:\n"
-        history = self.get_history()
+        history = self.memory.get_recent_history(limit=5)
         input_prompt += "Conversation history:\n"
         for user_text, podak_text in history[::-1]:
             input_prompt += f"User: {user_text}\nPodak: {podak_text}\n"
@@ -107,18 +107,19 @@ class OfflineLLM:
         if "تو کی هستی" in prompt.lower() or "what are you" in prompt_en.lower() or "who are you" in prompt_en.lower() or "توسط" in prompt:
             answer_en = f"I am {self.name}, created by {self.creator}. I'm here to help with anything you ask, no limits!"
             answer_fa = self.translate_to_persian(answer_en)
-            self.save_to_db(prompt, answer_fa)
+            self.memory.save_conversation(prompt, answer_fa)
             return answer_fa
 
         # ذخیره و یادآوری اسم کاربر
         if "اسم من" in prompt or "my name is" in prompt_en.lower():
-            self.user_name = prompt.split("اسم من")[-1].strip() if "اسم من" in prompt else prompt_en.split("is")[-1].strip()
-            print(f"اسم کاربر ذخیره شد: {self.user_name}")
-        if "یادت میاد" in prompt or "اسمم چی" in prompt or "remember" in prompt_en.lower():
-            if self.user_name:
-                answer_en = f"Yes, I remember! Your name is {self.user_name}. How can I assist you now?" if style == "formal" else f"Yeah, I remember! Your name’s {self.user_name}. What’s up?"
+            name = prompt.split("اسم من")[-1].strip() if "اسم من" in prompt else prompt_en.split("is")[-1].strip()
+            self.memory.set_user_name(name)
+            print(f"اسم کاربر ذخیره شد: {name}")
+            user_name = self.memory.get_user_name()
+            if user_name:
+                answer_en = f"Yes, I remember! Your name is {user_name}. How can I assist you now?" if style == "formal" else f"Yeah, I remember! Your name’s {user_name}. What’s up?"
                 answer_fa = self.translate_to_persian(answer_en)
-                self.save_to_db(prompt, answer_fa)
+                self.memory.save_conversation(prompt, answer_fa)
                 return answer_fa
 
         # جستجوی وب
@@ -146,7 +147,7 @@ class OfflineLLM:
         )
         answer_en = self.tokenizer.decode(output[0].sequences_ids[0], skip_special_tokens=True).split("Podak:")[-1].strip()
         answer_fa = self.translate_to_persian(answer_en)
-        self.save_to_db(prompt, answer_fa)
+        self.memory.save_conversation(prompt, answer_fa)
 
         # تاریخ و زمان
         if "تاریخ" in prompt or "ساعت" in prompt or "time" in prompt_en.lower() or "date" in prompt_en.lower():
@@ -190,7 +191,13 @@ class ChatbotWindow(QMainWindow):
             self.input_field.clear()
 
 if __name__ == "__main__":
+    # تعریف مسیر مدل
+    default_model_path = "./models/llama-2-7b-chat-int8"
+    if not os.path.exists(default_model_path):
+        default_model_path = "./core/llama-2-7b-chat-int8"  # fallback
+    model_path = os.environ.get("POKAD_MODEL_PATH", default_model_path)
+
     app = QApplication(sys.argv)
-    window = ChatbotWindow()
+    window = ChatbotWindow()  # حالا داخل آن از model_path استفاده می‌شود
     window.show()
     sys.exit(app.exec())
