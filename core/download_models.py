@@ -11,7 +11,7 @@ model_name = "jamesdborin/ct2-int8-llama-2-7b-chat"
 # دانلود با تنظیمات
 model_path = snapshot_download(
     repo_id=model_name,
-    local_dir="./core/llama-2-7b-chat-int8",
+    local_dir="./models/llama-2-7b-chat-int8",
     local_files_only=False,
     resume_download=True,  # ادامه دانلود اگه قطع بشه
     max_workers=4,         # دانلود موازی با ۴ رشته
